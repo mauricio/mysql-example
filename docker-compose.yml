@@ -1,0 +1,31 @@
+version: "3.8"
+
+volumes:
+  mysql:
+    driver: local
+
+services:
+
+  mysql:
+    image: "mysql:8.0.28"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    restart: on-failure
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql:/data/mysql
+
+  console:
+    image: "mysql:8.0.28"
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/db
+    working_dir: /db
+    command:
+      - "true"
+    depends_on:
+      - mysql
+    links:
+      - mysql
