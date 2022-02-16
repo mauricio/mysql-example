@@ -1,5 +1,5 @@
 setup:
-	docker-compose run console /db/setup.sh
+	docker-compose run --rm console /db/setup.sh
 
 up: down
 	docker-compose build
@@ -10,4 +10,4 @@ down:
 	docker-compose down
 
 console:
-	docker-compose run --rm console mysql -u root -proot --host mysql
+	docker-compose run --rm console mysql -u root -proot --host mysql employees

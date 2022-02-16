@@ -48,12 +48,6 @@ CREATE TABLE employees (
     PRIMARY KEY (emp_no)
 );
 
-CREATE INDEX employees_birth_date_idx ON employees (birth_date);
-CREATE INDEX employees_first_name_idx ON employees (first_name);
-CREATE INDEX employees_last_name_idx ON employees (last_name);
-CREATE INDEX employees_gender_idx ON employees (gender);
-CREATE INDEX employees_hire_date_idx ON employees (hire_date);
-
 CREATE INDEX employees_last_first_name_idx ON employees (last_name, first_name);
 
 CREATE TABLE departments (
